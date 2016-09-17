@@ -10,13 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 require('../../public/css/styles.css');
+var HEROES = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'Tour of Heroes';
+        this.heroes = HEROES;
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: require('./app.component.html'),
+            template: "<h1>{{ title }}</h1>\n             <ul class=\"heroes\">\n                <li *ngFor=\"let hero of heroes\"\n                  (click)=\"onSelect(hero)\"\n                  [class.selected] = \"hero === selectedHero\">\n                  <span class=\"badge\">{{ hero.id }}</span> {{ hero.name }}\n                </li>\n             </ul>\n             <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>    \n             ",
             styles: [require('./app.component.css')]
         }), 
         __metadata('design:paramtypes', [])

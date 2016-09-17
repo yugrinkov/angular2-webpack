@@ -1,2 +1,9 @@
-dist/
-node_modules/
+typings
+src/*.js
+src/*.map
+src/app/*.js
+src/app/*.map
+node_modules
+jspm_packages
+bower_components
+dist
